@@ -1,0 +1,260 @@
+/* ─── FONTS ─────────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap');
+
+/* ─── GLOBAL RESET ─────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #0b1929;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ─── CUSTOM SCROLLBAR ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 160, 230, 0.2);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 160, 230, 0.4);
+}
+
+/* ─── KEYFRAME ANIMATIONS ──────────────────────────────────────────────────── */
+@keyframes floatA {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-12px) rotate(3deg); }
+}
+
+@keyframes floatB {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-8px) rotate(-4deg); }
+}
+
+@keyframes floatC {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-14px) rotate(2deg); }
+}
+
+@keyframes floatD {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-10px) rotate(-3deg); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.13; }
+  50%      { opacity: 0.22; }
+}
+
+/* ─── LABELS ───────────────────────────────────────────────────────────────── */
+label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ─── BUTTONS ──────────────────────────────────────────────────────────────── */
+.btn-primary {
+  width: 100%;
+  padding: 18px;
+  background: #2e8de8;
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  font-family: 'Syne', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(46, 141, 232, 0.4);
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: #3a99f5;
+  box-shadow: 0 8px 32px rgba(46, 141, 232, 0.55);
+}
+
+.btn-secondary {
+  width: 100%;
+  padding: 18px;
+  background: #111c2b;
+  color: #e8f4ff;
+  border: none;
+  border-radius: 40px;
+  font-family: 'Syne', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: transform 0.18s, background 0.18s;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  background: #162336;
+}
+
+/* ─── INPUT FIELDS ─────────────────────────────────────────────────────────── */
+.input-field {
+  width: 100%;
+  padding: 15px 16px 15px 46px;
+  border-radius: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  border: 1.5px solid;
+}
+
+.input-field:focus {
+  border-color: rgba(46, 141, 232, 0.6) !important;
+  box-shadow: 0 0 0 3px rgba(46, 141, 232, 0.1);
+}
+
+/* ─── BACK BUTTON ──────────────────────────────────────────────────────────── */
+.back-btn {
+  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* ─── EYE TOGGLE ───────────────────────────────────────────────────────────── */
+.eye-btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: rgba(126, 184, 247, 0.5);
+  transition: color 0.2s;
+}
+
+.eye-btn:hover {
+  color: rgba(126, 184, 247, 0.9);
+}
+
+/* ─── RESPONSIVE: CENTER APP ON DESKTOP ────────────────────────────────────── */
+@media (min-width: 481px) {
+  #root {
+    display: flex;
+    justify-content: center;
+  }
+
+  #root > div {
+    max-width: 480px;
+    width: 100%;
+  }
+}
+
+/* ─── SEARCH RESULT CARDS ──────────────────────────────────────────────────── */
+.search-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(46, 141, 232, 0.15);
+}
+
+/* ─── SKELETON LOADER ──────────────────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.search-skeleton {
+  height: 108px;
+  border-radius: 18px;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.04) 25%,
+    rgba(255,255,255,0.09) 50%,
+    rgba(255,255,255,0.04) 75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+/* ─── ACTIVE FILTER CHIPS ──────────────────────────────────────────────────── */
+.active-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 40px;
+  background: rgba(46, 141, 232, 0.12);
+  border: 1px solid rgba(46, 141, 232, 0.35);
+  color: #7eb8f7;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.chip-close {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 10px;
+  padding: 0;
+  opacity: 0.7;
+  line-height: 1;
+}
+
+.chip-close:hover { opacity: 1; }
+
+/* ─── DETAIL PAGE SPINNER ──────────────────────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.detail-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(46, 141, 232, 0.15);
+  border-top-color: #2e8de8;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+

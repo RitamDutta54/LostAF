@@ -1,0 +1,33 @@
+// ─── THEME TOKENS ─────────────────────────────────────────────────────────────
+const T = {
+  bg:        "linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
+  navBg:     "rgba(15,30,60,0.97)",
+  navBorder: "rgba(100,160,230,0.15)",
+  card:      "rgba(255,255,255,0.07)",
+  cardBorder:"rgba(100,160,230,0.18)",
+  text:      "#eaf2ff",
+  subtext:   "rgba(180,210,255,0.5)",
+  label:     "rgba(180,210,255,0.65)",
+  sectionLbl:"rgba(180,210,255,0.38)",
+  input:     "rgba(255,255,255,0.07)",
+  inputBorder:"rgba(100,160,230,0.2)",
+  inputText: "#eaf2ff",
+  placeholder:"rgba(180,210,255,0.3)",
+  iconColor: "rgba(100,160,230,0.6)",
+  divider:   "rgba(100,160,230,0.1)",
+  backBtn:   "rgba(255,255,255,0.08)",
+  backBorder:"rgba(100,160,230,0.2)",
+  taglineColor:"rgba(200,225,255,0.5)",
+  emptyBorder:"rgba(100,160,230,0.18)",
+  emptyBg:   "rgba(255,255,255,0.03)",
+  emptyText: "rgba(180,210,255,0.38)",
+  bellBorder:"rgba(100,160,230,0.2)",
+  bellBg:    "rgba(255,255,255,0.07)",
+  notifDot:  "#16213e",
+  menuHover: "rgba(255,255,255,0.05)",
+  chevron:   "rgba(100,160,230,0.4)",
+  dropBg:    "rgba(15,30,60,0.98)",
+  dropBorder:"rgba(100,160,230,0.15)",
+};
+
+export default T;

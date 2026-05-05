@@ -1,70 +1,116 @@
-# Getting Started with Create React App
+# 🔍 LostAF — Lost & Found Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**LostAF** is a community-driven lost and found web application built with React and Firebase. Users can report lost or found items, browse reports, send claims, chat with report owners, and track the status of their items — all in one place.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+- 🔐 **Authentication** — Email/password sign-up & login with email verification
+- 📋 **Report System** — Post lost or found item reports with images, location, and descriptions
+- 🔎 **Search & Filter** — Browse and filter reports by category, status, location, and more
+- 💬 **Real-time Chat** — In-app messaging between claimants and report owners
+- 🙋 **Claims Management** — Submit and manage claims on found items
+- ✅ **Report Resolution** — Mark reports as resolved once the item is returned
+- 👤 **User Profiles** — Edit profile, view your reports and claim history
+- 📤 **Image Uploads** — Cloudinary-powered image upload for item photos
+- 📧 **Email Notifications** — Automated email alerts via EmailJS for claims and messages
+- 🔗 **Share Reports** — Copy shareable links to any item report
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack
 
-### `npm test`
+| Layer | Technology |
+|---|---|
+| Frontend | React 19, React Router v7 |
+| Backend / DB | Firebase Firestore |
+| Auth | Firebase Authentication |
+| Storage | Cloudinary |
+| Email | EmailJS |
+| Styling | Vanilla CSS |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🚀 Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v16+)
+- npm
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+```bash
+# Clone the repository
+git clone https://github.com/RitamDutta54/LostAF.git
+cd LostAF
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Install dependencies
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Environment Variables
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Create a `.env` file in the root directory with the following variables:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```env
+REACT_APP_CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+REACT_APP_CLOUDINARY_UPLOAD_PRESET=your_upload_preset
+```
 
-## Learn More
+You will also need to configure Firebase. Update `src/firebase.js` with your own Firebase project credentials.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Running the App
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm start
+```
 
-### Code Splitting
+The app will be available at [http://localhost:3000](http://localhost:3000).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 📁 Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+src/
+├── components/
+│   ├── BottomNav.jsx       # Mobile bottom navigation bar
+│   ├── FloatingIcons.jsx   # Floating action icons
+│   └── ProtectedRoute.jsx  # Auth-guarded routes
+├── pages/
+│   ├── Landing.jsx         # Landing / welcome page
+│   ├── Login.jsx           # Login page
+│   ├── SignUp.jsx          # Sign-up page
+│   ├── VerifyEmail.jsx     # Email verification gate
+│   ├── Home.jsx            # Main feed of reports
+│   ├── Search.jsx          # Search & filter reports
+│   ├── Report.jsx          # Create a new report
+│   ├── ReportDetail.jsx    # View report details & claim
+│   ├── Messages.jsx        # Inbox / conversations list
+│   ├── ChatThread.jsx      # Individual chat thread
+│   └── Profile.jsx         # User profile & settings
+├── App.jsx                 # Root component & routing
+├── firebase.js             # Firebase configuration
+├── styles.css              # Global styles
+└── theme.js                # Theme tokens & constants
+```
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📸 Screenshots
 
-### Advanced Configuration
+> Coming soon.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🤝 Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).

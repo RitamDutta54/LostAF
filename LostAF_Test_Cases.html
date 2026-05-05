@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LostAF – Functional Test Case Template</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+      font-size: 11px;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+    .page {
+      background: white;
+      max-width: 1600px;
+      margin: 0 auto;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    }
+
+    /* ── TITLE HEADER ── */
+    .title-bar {
+      background: #1a3a5c;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 0.03em;
+    }
+    .title-bar span { color: #4fc3f7; }
+
+    .meta-bar {
+      background: #e8f4ff;
+      border-bottom: 2px solid #1a3a5c;
+      padding: 8px 16px;
+      display: flex;
+      gap: 40px;
+      font-size: 11px;
+      color: #333;
+    }
+    .meta-bar b { color: #1a3a5c; }
+
+    /* ── TABLE ── */
+    .wrapper { overflow-x: auto; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1500px;
+    }
+    thead tr.section-header th {
+      background: #1a7a3c;
+      color: white;
+      text-align: center;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 9px 8px;
+      letter-spacing: 0.04em;
+    }
+    thead tr.col-header th {
+      background: #2e5fa3;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      padding: 7px 5px;
+      border: 1px solid #1a4080;
+      font-size: 10px;
+      white-space: nowrap;
+    }
+    tbody tr { border-bottom: 1px solid #d0d8e4; }
+    tbody tr:nth-child(even) { background: #f5f9ff; }
+    tbody tr:hover { background: #e8f0ff; }
+    td {
+      padding: 6px 6px;
+      border: 1px solid #ccd6e8;
+      vertical-align: middle;
+      font-size: 10.5px;
+      color: #222;
+    }
+    td.center { text-align: center; }
+
+    /* Status badges */
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 10px;
+      letter-spacing: 0.03em;
+    }
+    .pass  { background: #d4f4de; color: #176a2e; border: 1px solid #7dd49a; }
+    .fail  { background: #fde4e4; color: #9b1c1c; border: 1px solid #f5a5a5; }
+    .pending { background: #fff3cd; color: #856404; border: 1px solid #ffc107; }
+    .blocked { background: #e8e0ff; color: #4a1fa8; border: 1px solid #b9a6f7; }
+
+    /* Priority */
+    .high   { color: #c0392b; font-weight: bold; }
+    .medium { color: #e67e22; font-weight: bold; }
+    .low    { color: #27ae60; font-weight: bold; }
+
+    /* Feature group rows */
+    tr.group-label td {
+      background: #dfe9f5;
+      color: #1a3a5c;
+      font-weight: bold;
+      font-size: 11px;
+      padding: 6px 10px;
+      border-top: 2px solid #2e5fa3;
+      border-bottom: 1px solid #a0b8d8;
+    }
+
+    /* Footer */
+    .footer {
+      background: #1a3a5c;
+      color: #aad4f5;
+      text-align: center;
+      padding: 10px;
+      font-size: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .page { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Title -->
+  <div class="title-bar">Lost<span>AF</span> — Functional Test Case Template</div>
+
+  <!-- Meta -->
+  <div class="meta-bar">
+    <span><b>Project:</b> LostAF (Lost &amp; Found Web App)</span>
+    <span><b>Version:</b> V1.0</span>
+    <span><b>Prepared By:</b> QA Team</span>
+    <span><b>Date:</b> 12-04-2026</span>
+    <span><b>Total TCs:</b> 22</span>
+    <span><b>Pass:</b> 16 &nbsp;|&nbsp; <b>Fail:</b> 4 &nbsp;|&nbsp; <b>Pending:</b> 2</span>
+  </div>
+
+  <div class="wrapper">
+  <table>
+    <thead>
+      <tr class="section-header">
+        <th colspan="18">Functional Test Case Template</th>
+      </tr>
+      <tr class="col-header">
+        <th>Test Case ID</th>
+        <th>Version</th>
+        <th>Feature</th>
+        <th>Test Case</th>
+        <th>Preconditions</th>
+        <th>Steps to Execute</th>
+        <th>Test Data</th>
+        <th>Expected Output</th>
+        <th>Actual Output</th>
+        <th>Status</th>
+        <th>Bug ID</th>
+        <th>Bug Title</th>
+        <th>Root Cause / Description</th>
+        <th>Resolution</th>
+        <th>Priority</th>
+        <th>Execution Date</th>
+        <th>Retest Date</th>
+        <th>Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- ── LANDING PAGE ── -->
+      <tr class="group-label"><td colspan="18">🏠 Landing Page</td></tr>
+      <tr>
+        <td class="center">TC_001</td><td class="center">V1.0</td><td>Landing Page</td>
+        <td>Display landing screen to unauthenticated user</td>
+        <td>User not logged in</td>
+        <td>1. Open app at / route</td>
+        <td>No session</td>
+        <td>Landing page shown with LostAF logo, Login &amp; Sign Up buttons</td>
+        <td>Landing page displayed correctly</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="high">High</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+      <tr>
+        <td class="center">TC_002</td><td class="center">V1.0</td><td>Landing Page</td>
+        <td>Redirect logged-in user away from landing page</td>
+        <td>User already authenticated &amp; verified</td>
+        <td>1. Open app at / while logged in</td>
+        <td>Valid session</td>
+        <td>Auto-redirect to /home</td>
+        <td>Redirected to /home</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="high">High</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+
+      <!-- ── SIGN UP ── -->
+      <tr class="group-label"><td colspan="18">📝 Sign Up</td></tr>
+      <tr>
+        <td class="center">TC_003</td><td class="center">V1.0</td><td>Sign Up</td>
+        <td>Successful account creation</td>
+        <td>Unique email not registered before</td>
+        <td>1. Go to Sign Up 2. Fill name, email, phone, password, confirm 3. Click Create Account</td>
+        <td>Name: Test User, Email: test@gmail.com, Phone: 9876543210, Pwd: Test@123</td>
+        <td>Account created, verification email sent, redirect to /verify</td>
+        <td>Account created, redirected to /verify</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="high">High</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+      <tr>
+        <td class="center">TC_004</td><td class="center">V1.0</td><td>Sign Up</td>
+        <td>Sign up with already registered email</td>
+        <td>Email already exists in Firebase Auth</td>
+        <td>1. Go to Sign Up 2. Use an existing email 3. Submit</td>
+        <td>Email: existing@gmail.com</td>
+        <td>Error: "Email already in use"</td>
+        <td>Error message displayed</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="medium">Medium</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+      <tr>
+        <td class="center">TC_005</td><td class="center">V1.0</td><td>Sign Up</td>
+        <td>Password mismatch validation</td>
+        <td>Sign up form open</td>
+        <td>1. Enter different values in Password and Confirm Password 2. Submit</td>
+        <td>Pwd: Test@123, Confirm: Test@456</td>
+        <td>Error: "Passwords do not match"</td>
+        <td>No error shown — report submitted with mismatch</td>
+        <td class="center"><span class="badge fail">Fail</span></td>
+        <td>BUG_001</td>
+        <td>Password mismatch not validated</td>
+        <td>handleSignup in App.jsx does not compare form.password vs form.confirm</td>
+        <td>Add comparison check before Firebase createUser call</td>
+        <td class="high">High</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Open bug</td>
+      </tr>
+
+      <!-- ── EMAIL VERIFICATION ── -->
+      <tr class="group-label"><td colspan="18">📧 Email Verification</td></tr>
+      <tr>
+        <td class="center">TC_006</td><td class="center">V1.0</td><td>Email Verification</td>
+        <td>Block login for unverified user</td>
+        <td>Account created but email not verified</td>
+        <td>1. Sign up 2. Do NOT click verification link 3. Try to log in</td>
+        <td>Valid credentials, unverified account</td>
+        <td>Login blocked, error + resend email triggered</td>
+        <td>Login blocked with message</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="high">High</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+      <tr>
+        <td class="center">TC_007</td><td class="center">V1.0</td><td>Email Verification</td>
+        <td>Allow login after verifying email</td>
+        <td>User clicked verification link in email</td>
+        <td>1. Click verification link in email 2. Return to app 3. Log in</td>
+        <td>Verified account credentials</td>
+        <td>Login succeeds, redirect to /home</td>
+        <td>Login succeeded, redirected to /home</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="high">High</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+
+      <!-- ── LOGIN ── -->
+      <tr class="group-label"><td colspan="18">🔐 Login</td></tr>
+      <tr>
+        <td class="center">TC_008</td><td class="center">V1.0</td><td>Login</td>
+        <td>Successful login with valid credentials</td>
+        <td>Account exists and email is verified</td>
+        <td>1. Enter email &amp; password 2. Click Login</td>
+        <td>Email: test@gmail.com, Pwd: Test@123</td>
+        <td>Logged in, navigated to /home</td>
+        <td>Logged in, home page displayed</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="high">High</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+      <tr>
+        <td class="center">TC_009</td><td class="center">V1.0</td><td>Login</td>
+        <td>Login with wrong password</td>
+        <td>Account exists</td>
+        <td>1. Enter correct email 2. Enter wrong password 3. Click Login</td>
+        <td>Email: test@gmail.com, Pwd: Wrong123</td>
+        <td>Error: "Invalid email or password"</td>
+        <td>Error message shown</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="medium">Medium</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+      <tr>
+        <td class="center">TC_010</td><td class="center">V1.0</td><td>Login</td>
+        <td>Show/hide password toggle</td>
+        <td>Login page open</td>
+        <td>1. Enter password 2. Click eye icon</td>
+        <td>Any password</td>
+        <td>Password text toggles between visible and hidden</td>
+        <td>Toggle works correctly</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="low">Low</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+
+      <!-- ── FORGOT PASSWORD ── -->
+      <tr class="group-label"><td colspan="18">🔒 Forgot Password</td></tr>
+      <tr>
+        <td class="center">TC_011</td><td class="center">V1.0</td><td>Forgot Password</td>
+        <td>Send reset link to registered email</td>
+        <td>Email registered in Firebase</td>
+        <td>1. Click Forgot Password 2. Enter registered email 3. Click Send Reset Link</td>
+        <td>Email: test@gmail.com</td>
+        <td>"Email Sent!" success card shown, email received</td>
+        <td>Success card shown but email may delay (institutional filter)</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="high">High</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Check spam if using .edu email</td>
+      </tr>
+      <tr>
+        <td class="center">TC_012</td><td class="center">V1.0</td><td>Forgot Password</td>
+        <td>Submit without entering email</td>
+        <td>Forgot password mode active</td>
+        <td>1. Click Forgot Password 2. Leave email blank 3. Click Send Reset Link</td>
+        <td>Empty email</td>
+        <td>Error: "Please enter your email address first."</td>
+        <td>Error message shown</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="medium">Medium</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+
+      <!-- ── REPORT ── -->
+      <tr class="group-label"><td colspan="18">📋 Report Lost / Found Item</td></tr>
+      <tr>
+        <td class="center">TC_013</td><td class="center">V1.0</td><td>Report</td>
+        <td>Submit a Lost report without image</td>
+        <td>User logged in and verified</td>
+        <td>1. Click + Report 2. Select Lost 3. Fill title, category, location, date 4. Submit</td>
+        <td>Title: Lenovo Bag, Cat: Bags, Loc: TP404, Date: 12-04-2026</td>
+        <td>Report saved to Firestore, redirect to /home</td>
+        <td>Report saved and visible in My Reports</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="high">High</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+      <tr>
+        <td class="center">TC_014</td><td class="center">V1.0</td><td>Report</td>
+        <td>Submit a Found report with image</td>
+        <td>Cloudinary upload preset configured as unsigned</td>
+        <td>1. Select Found 2. Fill fields 3. Add 1 image 4. Submit</td>
+        <td>Title: Black Wallet, Cat: Wallet, Loc: Library</td>
+        <td>Image uploaded to Cloudinary, URL stored in Firestore</td>
+        <td>"Failed to fetch" — Cloudinary preset not configured</td>
+        <td class="center"><span class="badge fail">Fail</span></td>
+        <td>BUG_002</td>
+        <td>Cloudinary upload fails</td>
+        <td>Upload preset lostaf_uploads not set to Unsigned on Cloudinary dashboard</td>
+        <td>Set preset to Unsigned in Cloudinary console. Image upload now non-fatal (report saves without image)</td>
+        <td class="high">High</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Partially fixed</td>
+      </tr>
+      <tr>
+        <td class="center">TC_015</td><td class="center">V1.0</td><td>Report</td>
+        <td>Submit report with required fields missing</td>
+        <td>Report form open</td>
+        <td>1. Leave title empty 2. Click Submit</td>
+        <td>Empty title</td>
+        <td>Error: "Please fill in all required fields."</td>
+        <td>Error shown</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="medium">Medium</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+      <tr>
+        <td class="center">TC_016</td><td class="center">V1.0</td><td>Report</td>
+        <td>Add more than 2 images</td>
+        <td>Report form open</td>
+        <td>1. Upload 2 images 2. Try to add a 3rd</td>
+        <td>3 image files</td>
+        <td>Error: "Max 2 images allowed."</td>
+        <td>Error shown, 3rd image blocked</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="low">Low</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+
+      <!-- ── HOME / FEED ── -->
+      <tr class="group-label"><td colspan="18">🏠 Home / My Reports Feed</td></tr>
+      <tr>
+        <td class="center">TC_017</td><td class="center">V1.0</td><td>Home</td>
+        <td>Real-time display of My Reports</td>
+        <td>User has submitted at least 1 report</td>
+        <td>1. Navigate to /home 2. Observe the My Reports section</td>
+        <td>Existing reports in Firestore</td>
+        <td>Reports listed in real time with title, type badge, location</td>
+        <td>Reports displayed correctly via onSnapshot</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="high">High</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+      <tr>
+        <td class="center">TC_018</td><td class="center">V1.0</td><td>Home</td>
+        <td>Empty state when no reports exist</td>
+        <td>New user with zero reports</td>
+        <td>1. Log in with new account 2. Go to /home</td>
+        <td>No reports in DB</td>
+        <td>Dashed placeholder with "No reports yet" message</td>
+        <td>Empty state shown</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="medium">Medium</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+
+      <!-- ── PROFILE ── -->
+      <tr class="group-label"><td colspan="18">👤 Profile Page</td></tr>
+      <tr>
+        <td class="center">TC_019</td><td class="center">V1.0</td><td>Profile</td>
+        <td>Display correct user info from Firestore</td>
+        <td>User profile document exists in Firestore users/ collection</td>
+        <td>1. Navigate to /profile 2. Observe name, email, phone</td>
+        <td>Firestore document with correct data</td>
+        <td>Name, email, phone displayed from Firestore</td>
+        <td>User info shown correctly</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="high">High</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+      <tr>
+        <td class="center">TC_020</td><td class="center">V1.0</td><td>Profile</td>
+        <td>Stats — Lost and Found counts match reports</td>
+        <td>User has submitted reports of both types</td>
+        <td>1. Submit 2 Lost and 1 Found report 2. Check Profile stats</td>
+        <td>2 Lost, 1 Found in Firestore</td>
+        <td>Lost: 2, Found: 1, Returned: 0</td>
+        <td>Counts match correctly</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="medium">Medium</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+
+      <!-- ── LOGOUT ── -->
+      <tr class="group-label"><td colspan="18">🚪 Logout</td></tr>
+      <tr>
+        <td class="center">TC_021</td><td class="center">V1.0</td><td>Logout</td>
+        <td>Logout redirects to landing page</td>
+        <td>User is logged in</td>
+        <td>1. Go to Profile 2. Click Logout in Settings</td>
+        <td>Active session</td>
+        <td>Firebase session cleared, redirect to /</td>
+        <td>Logged out, redirected to landing</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="high">High</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+
+      <!-- ── PROTECTED ROUTES ── -->
+      <tr class="group-label"><td colspan="18">🛡️ Protected Routes / Access Control</td></tr>
+      <tr>
+        <td class="center">TC_022</td><td class="center">V1.0</td><td>Auth Guard</td>
+        <td>Unauthenticated access to /home blocked</td>
+        <td>No active session</td>
+        <td>1. Open browser 2. Navigate directly to /home URL</td>
+        <td>No session cookie</td>
+        <td>Redirect to /</td>
+        <td>Redirected to landing page</td>
+        <td class="center"><span class="badge pass">Pass</span></td>
+        <td>—</td><td>—</td><td>—</td><td>—</td>
+        <td class="high">High</td>
+        <td class="center">12-04-2026</td><td class="center">—</td><td>Working fine</td>
+      </tr>
+
+      <!-- ── PENDING ── -->
+      <tr class="group-label"><td colspan="18">⏳ Pending / Not Yet Tested</td></tr>
+      <tr>
+        <td class="center">TC_023</td><td class="center">V1.0</td><td>Search</td>
+        <td>Filter reports by keyword</td>
+        <td>Reports exist in Firestore</td>
+        <td>1. Enter keyword in search box on Home 2. Observe results</td>
+        <td>Keyword: "Wallet"</td>
+        <td>Only matching reports shown</td>
+        <td>Not implemented yet</td>
+        <td class="center"><span class="badge pending">Pending</span></td>
+        <td>BUG_003</td>
+        <td>Search does not filter reports</td>
+        <td>Search state exists but no filter logic applied to Firestore query</td>
+        <td>Implement client-side filter or Firestore where() clause</td>
+        <td class="medium">Medium</td>
+        <td class="center">—</td><td class="center">—</td><td>Feature not built</td>
+      </tr>
+      <tr>
+        <td class="center">TC_024</td><td class="center">V1.0</td><td>Messages</td>
+        <td>Send message to report owner</td>
+        <td>Two users exist, one has a matching report</td>
+        <td>1. Click Messages tab 2. Start conversation</td>
+        <td>Two active accounts</td>
+        <td>Message sent and displayed in real time</td>
+        <td>Not implemented — Coming Soon</td>
+        <td class="center"><span class="badge blocked">Blocked</span></td>
+        <td>BUG_004</td>
+        <td>Messages feature missing</td>
+        <td>/messages route not created; BottomNav item triggers Coming Soon toast</td>
+        <td>Implement messaging with Firestore sub-collection</td>
+        <td class="high">High</td>
+        <td class="center">—</td><td class="center">—</td><td>Future sprint</td>
+      </tr>
+
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Summary Bar -->
+  <div style="display:flex;background:#f5f9ff;border-top:2px solid #2e5fa3;padding:10px 20px;gap:30px;font-size:11px;">
+    <span><b style="color:#176a2e">✅ Pass:</b> 16</span>
+    <span><b style="color:#9b1c1c">❌ Fail:</b> 4</span>
+    <span><b style="color:#856404">⏳ Pending:</b> 2</span>
+    <span><b style="color:#4a1fa8">🚫 Blocked:</b> 2</span>
+    <span style="margin-left:auto;color:#555;">Total: 24 Test Cases | Pass Rate: <b>66.7%</b></span>
+  </div>
+
+  <div class="footer">LostAF v1.0 — QA Test Report &nbsp;|&nbsp; Generated: 12-04-2026 &nbsp;|&nbsp; Confidential</div>
+</div>
+</body>
+</html>
